@@ -9,7 +9,7 @@ function BtnClear({setSearch}) {
   )
 }
 
-function SearchPanel({active, setActive, search, setSearch}) {
+function SearchPanel({setActive, search, setSearch, setCurrentPage}) {
   return (
     <div className="search-panel">
       <div className="form">
@@ -21,10 +21,11 @@ function SearchPanel({active, setActive, search, setSearch}) {
           onChange={e => {
             setActive(true);
             setSearch(e.target.value)
+            setCurrentPage(1)
           }}
         />
         <div>
-          {active ? <BtnClear setSearch={setSearch}/> : null}
+          {search ? <BtnClear setSearch={setSearch}/> : null}
         </div>
       </div>
     </div>

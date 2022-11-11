@@ -47,6 +47,7 @@ function App() {
         <div className="container">
           <h1>Список пользователей</h1>
           <SearchPanel
+            setCurrentPage={setCurrentPage}
             search={search}
             setSearch={setSearch}
             active={active}
