@@ -11,8 +11,8 @@ function App() {
 
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
-  const [delId, setDelId] = useState(null)
-  const [active, setActive] = useState(false);
+  const [delId, setDelId] = useState(null); /*id удаляемого usera*/
+  const [active, setActive] = useState(false); /* кнопка "Очистить фильтры"*/
   const [search, setSearch] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -41,9 +41,7 @@ function App() {
     setDelId(id)
     setModal(true);
   }
-
   
-
   // пагинация
   const lastDataIndex = currentPage * dataPerPage
   const firstDataIndex = lastDataIndex - dataPerPage
