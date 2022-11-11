@@ -3,7 +3,7 @@ import UserItem from "../user-item/user-item";
 
 import './users-list.css'
 
-function UsersList({users, setUsers, deleteItem}) {
+function UsersList({users, deleteItem}) {
   
   return (
     <>

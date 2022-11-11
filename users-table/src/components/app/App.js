@@ -1,14 +1,15 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import Modal from '../modal/modal';
 import Pagination from '../pagination/pagination';
 import SearchPanel from '../search-panel/search-panel';
 import UsersList from '../users-list/users-list';
+
 import './App.css';
 
 function App() {
   const URL = 'https://5ebbb8e5f2cfeb001697d05c.mockapi.io/users';
-
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [delId, setDelId] = useState(null); /*id удаляемого usera*/
@@ -18,6 +19,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1)
   const [dataPerPage] = useState(5)
 
+  // запрос на сервер
   useEffect(() => {
     const getUsers = async () => {
       const res = await axios.get(URL)
