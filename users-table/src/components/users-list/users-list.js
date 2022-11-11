@@ -1,10 +1,10 @@
-
 import SortPanel from "../sort-panel/sort-panel";
 import UserItem from "../user-item/user-item";
 
+import './users-list.css'
+
 function UsersList({users, setUsers, deleteItem}) {
   
-
   return (
     <>
       <SortPanel />

@@ -1,0 +1,21 @@
+.table-panel{
+    padding: 12px 12px 20px 16px;
+    background-color: #ffff;
+    border-radius: 7px;
+}
+table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+td{
+    padding: 9px 8px;
+    transition: .3s linear;
+    border-bottom: 1px solid var(--color-background-container);
+}
+
+thead {
+    font-size: 10px;
+    height: 50px;
+    padding: 10px 8px;
+}

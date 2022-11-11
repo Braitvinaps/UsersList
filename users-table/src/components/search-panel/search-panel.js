@@ -1,3 +1,4 @@
+import './search-panel.css'
 
 function BtnClear({setSearch}) {
   return (

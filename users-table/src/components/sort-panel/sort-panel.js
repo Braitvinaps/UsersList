@@ -1,3 +1,5 @@
+import './sort-panel.css'
+
 function SortPanel() {
     return (
         <div className="sort-panel">

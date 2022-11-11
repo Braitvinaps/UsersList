@@ -1,3 +1,5 @@
+import './user-item.css'
+
 function UserItem({ users, deleteItem }) {
 
     return (
