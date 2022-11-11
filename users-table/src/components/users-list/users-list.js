@@ -2,7 +2,7 @@
 import SortPanel from "../sort-panel/sort-panel";
 import UserItem from "../user-item/user-item";
 
-function UsersList({users, setUsers, setModal}) {
+function UsersList({users, setUsers, deleteItem}) {
   
 
   return (
@@ -22,7 +22,7 @@ function UsersList({users, setUsers, setModal}) {
           <tbody>
             <UserItem 
               users={users}
-              setModal={setModal}/>
+              deleteItem={deleteItem}/>
           </tbody>
         </table>
       </div>

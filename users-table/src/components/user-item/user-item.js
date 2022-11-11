@@ -1,4 +1,4 @@
-function UserItem({ users, setModal }) {
+function UserItem({ users, deleteItem }) {
 
     return (
         users.map((user, i) => {
@@ -14,7 +14,7 @@ function UserItem({ users, setModal }) {
                         <td>
                             <button
                                 className="btn cancel-btn"
-                                onClick={() => setModal(true)}
+                                onClick={() => deleteItem(id)}
                             >✖</button>
                         </td>
                     </tr>

@@ -11,6 +11,7 @@ function App() {
 
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
+  const [delId, setDelId] = useState(null)
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState('');
 
@@ -35,6 +36,14 @@ function App() {
     return 0
   })
 
+  // удаление
+  const deleteItem = (id) => {
+    setDelId(id)
+    setModal(true);
+  }
+
+  
+
   // пагинация
   const lastDataIndex = currentPage * dataPerPage
   const firstDataIndex = lastDataIndex - dataPerPage
@@ -55,25 +64,31 @@ function App() {
           <UsersList
             users={currentData}
             setUsers={setUsers}
-            setModal={setModal} />
+            deleteItem={deleteItem} />
         </div>
+        <Pagination
+          currentPage={currentPage}
+          dataPerPage={dataPerPage}
+          totalData={filteredData.length}
+          paginate={paginate} />
       </div>
       <Modal
         title={'Вы уверены, что хотите удалить пользователя?'}
         isOpened={modal}
       >
         <div className="btn-modal">
-          <button className='btn modal-yes'>Да</button>
+          <button 
+            className='btn modal-yes'
+            onClick={() => {
+              setUsers(users.filter(item => item.id !== delId))
+              setModal(false)
+              setCurrentPage(1)
+            }}>Да</button>
           <button
             className='btn modal-no'
             onClick={() => setModal(false)}>Нет</button>
         </div>
       </Modal>
-      <Pagination
-        currentPage={currentPage}
-        dataPerPage={dataPerPage}
-        totalData={filteredData.length}
-        paginate={paginate} />
     </div>
   );
 }
