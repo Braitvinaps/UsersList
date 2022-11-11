@@ -74,7 +74,7 @@ input::placeholder {
     padding-left: 15px;
 }
 .clean-btn{
-    display: none;
+    display: block;
     background: url(/src/resurces/img/clean.svg) no-repeat;
     padding-left: 15px;
     color: #000;

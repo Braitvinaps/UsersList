@@ -1,7 +1,7 @@
 function UserItem({ users, setModal }) {
 
     return (
-        users.map((user) => {
+        users.map((user, i) => {
             const { id, username, email, registration_date, rating } = user
 
             return (

@@ -11,6 +11,8 @@ function App() {
 
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
+  const [active, setActive] = useState(false);
+  const [search, setSearch] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1)
   const [dataPerPage] = useState(5)
@@ -23,10 +25,20 @@ function App() {
     getUsers()
   }, [])
 
+  // поиск
+  const filteredData = users.filter((name) => {
+    if (search === '') {
+      return name
+    } else if (name.username.toLowerCase().includes(search.toLowerCase()) || name.email.toLowerCase().includes(search.toLowerCase())) {
+      return name
+    }
+    return 0
+  })
+
   // пагинация
   const lastDataIndex = currentPage * dataPerPage
   const firstDataIndex = lastDataIndex - dataPerPage
-  const currentData = users.slice(firstDataIndex, lastDataIndex)
+  const currentData = filteredData.slice(firstDataIndex, lastDataIndex)
   const paginate = pageNumber => setCurrentPage(pageNumber)
 
   return (
@@ -34,7 +46,11 @@ function App() {
       <div className="wrapper">
         <div className="container">
           <h1>Список пользователей</h1>
-          <SearchPanel />
+          <SearchPanel
+            search={search}
+            setSearch={setSearch}
+            active={active}
+            setActive={setActive} />
           <UsersList
             users={currentData}
             setUsers={setUsers}
@@ -55,7 +71,7 @@ function App() {
       <Pagination
         currentPage={currentPage}
         dataPerPage={dataPerPage}
-        totalData={users.length}
+        totalData={filteredData.length}
         paginate={paginate} />
     </div>
   );
