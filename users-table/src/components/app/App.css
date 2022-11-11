@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root{
+    /* Font Family */
+    --ff-inter: 'Inter', sans-serif; 
+
+    /* Color */
+    --color-background-container: #F7F7F7;
+    --color-background: #E5E5E5;
+    --color-username: #0CB4F1;
+    --color-font: #ACACAC;
+    --color-names-tablet: #9EAAB4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--color-font)
+}
+
+.btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    line-height: 16px;
+    font-family: var(--ff-inter);
+    cursor: pointer;
+}
+
+h1{
+    color: #000;
+}
+body{
+    font-family: var(--ff-inter);
+    font-size: 12px;
+    line-height: 1;
+    background-color: var(--color-background);
+    padding: 60px 27px 0 0;
+}
+
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 27px 27px 27px 10px; 
+    background-color: var(--color-background-container);
+}
+
+/* ======== Search ======== */
+.search-panel{
+    padding: 12px 44px 20px 16px;
+    background-color: #ffff;
+    border-radius: 7px;
+    margin: 20px 0 40px 0;
+    -webkit-box-shadow: 0px 28px 20px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 28px 20px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 28px 20px 0px rgba(34, 60, 80, 0.2);
+}
+input{
+    font-family: var(--ff-inter);
+    font-size: 12px;
+    border: none;
+    outline: none;
+    background-color: var(--color-background);
+    margin-bottom: 20px;
+    padding-left: 16px;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    height: 34px;
+}
+input::placeholder {
+    background: url(/src/resurces/img/source_icons_search.svg) no-repeat;
+    padding-left: 15px;
+}
+.clean-btn{
+    display: none;
+    background: url(/src/resurces/img/clean.svg) no-repeat;
+    padding-left: 15px;
+    color: #000;
+}
+
+/* ======== Sort ======== */
+.sort-panel{
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+.sort-btn{
+    margin:0 0 0 5px;
+    border-bottom: 2px dashed;
+    font-size: 10px;
+}
+
+/* ======== Table ======== */
+.table-panel{
+    padding: 12px 12px 20px 16px;
+    background-color: #ffff;
+    border-radius: 7px;
+}
+table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+td{
+    padding: 9px 8px;
+    transition: .3s linear;
+    border-bottom: 1px solid var(--color-background-container);
+}
+.td-username {
+    color: var(--color-username);
+}
+thead {
+    font-size: 10px;
+    height: 50px;
+    padding: 10px 8px;
+}
+.cancel-btn {
+    color:#000;
+    font-size: 16px;
+    width: 16px;
+}
+.btn-modal{
+    text-align: center;
+    margin-top: 30px;
+}
+.modal-yes{
+    background-color: var(--color-background);
+    margin-right: 20px;
+    width: 90px;
+    height: 30px;
+    border-radius: 3px;
+}
+.modal-no{
+    background-color: var(--color-username);
+    color: var(--color-background-container);
+    width: 90px;
+    height: 30px;
+    border-radius: 3px;
+}
+

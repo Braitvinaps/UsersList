@@ -1,0 +1,31 @@
+.modal-wrapper{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0, .2);
+    backdrop-filter: blur(1px);
+}
+.modal-wrapper.open{
+    height: 100%;
+    display: block;
+}
+.modal-wrapper.close{
+    height: 0%;
+    display: none;
+}
+.modal-body{
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    margin-top: 5%;
+    padding: 20px;
+    min-height: 150px;
+    border-radius: 8px;
+}
+.modal-body h2{
+    font-size: 12px;
+    font-family: var(--ff-inter);
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+}
