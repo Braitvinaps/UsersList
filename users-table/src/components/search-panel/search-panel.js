@@ -1,11 +1,13 @@
 import './search-panel.css'
 
-function BtnClear({setSearch, setSort}) {
+function BtnClear({setSearch, setSort, setRegData, setRating}) {
   return (
     <button 
       onClick={() => {
         setSearch('');
-        setSort(false)
+        setSort(false);
+        setRating(false);
+        setRegData(false);
       }}
       className="btn clean-btn">
       Очистить фильтр
@@ -13,7 +15,7 @@ function BtnClear({setSearch, setSort}) {
   )
 }
 
-function SearchPanel({ search, setSearch, setCurrentPage, sort, setSort}) {
+function SearchPanel({ search, setSearch, setCurrentPage, sort, setSort, setRegData, setRating}) {
   return (
     <div className="search-panel">
       <div className="form">
@@ -28,9 +30,13 @@ function SearchPanel({ search, setSearch, setCurrentPage, sort, setSort}) {
           }}
         />
         <div>
-          {(search || sort) ? <BtnClear 
-            setSort={setSort}
-            setSearch={setSearch}/> : null}
+          {(search || sort) ? 
+            <BtnClear 
+              setSort={setSort}
+              setSearch={setSearch}
+              setRegData={setRegData}
+              setRating={setRating}/> : 
+              null}
         </div>
       </div>
     </div>

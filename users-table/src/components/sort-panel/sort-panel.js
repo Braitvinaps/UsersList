@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import './sort-panel.css'
 
-function SortPanel({setSort, onSort}) {
+function SortPanel({setSort, onSort, regData, setRegData, rating, setRating }) {
 
-    const [regData, setRegData] = useState(false); /* кнопки сортировки */
-    const [rating, setRating] = useState(false);
+    // const [regData, setRegData] = useState(false); /* кнопки сортировки */
+    // const [rating, setRating] = useState(false);
 
     let classNames = (btn) => {
         return `btn sort-btn ${btn ? 'active' : null}`

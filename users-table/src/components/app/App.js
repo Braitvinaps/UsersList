@@ -15,8 +15,11 @@ function App() {
   const [delId, setDelId] = useState(null); /*id удаляемого usera*/
 
   const [search, setSearch] = useState('');
+
   const [sort, setSort] = useState(false);
   const [changeSort, setChangeSort] = useState(true);
+  const [regData, setRegData] = useState(false); /* кнопки сортировки */
+  const [rating, setRating] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [dataPerPage] = useState(5);
@@ -74,12 +77,18 @@ function App() {
             setSearch={setSearch}
             sort={sort}
             setSort={setSort}
+            setRegData={setRegData}
+            setRating={setRating}
           />
           <UsersList
             users={currentData}
             setUsers={setUsers} 
             setSort={setSort}
             onSort={onSort}
+            regData={regData}
+            setRegData={setRegData}
+            rating={rating}
+            setRating={setRating}
             deleteItem={deleteItem} />
         </div>
         <Pagination

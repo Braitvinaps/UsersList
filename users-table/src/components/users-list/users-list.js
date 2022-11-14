@@ -3,13 +3,17 @@ import UserItem from "../user-item/user-item";
 
 import './users-list.css'
 
-function UsersList({ users, deleteItem, setSort, onSort }) {
+function UsersList({ users, deleteItem, setSort, onSort, regData, setRegData, rating, setRating }) {
 
   return (
     <>
       <SortPanel 
         onSort={onSort}
-        setSort={setSort}/>
+        setSort={setSort}
+        regData={regData}
+        setRegData={setRegData}
+        rating={rating}
+        setRating={setRating}/>
       <div className="table-panel">
         <table className="table">
           <thead>
