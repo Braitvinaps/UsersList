@@ -1,16 +1,19 @@
 import './search-panel.css'
 
-function BtnClear({setSearch}) {
+function BtnClear({setSearch, setSort}) {
   return (
     <button 
-      onClick={() => setSearch('')}
+      onClick={() => {
+        setSearch('');
+        setSort(false)
+      }}
       className="btn clean-btn">
       Очистить фильтр
     </button>
   )
 }
 
-function SearchPanel({setActive, search, setSearch, setCurrentPage}) {
+function SearchPanel({ search, setSearch, setCurrentPage, sort, setSort}) {
   return (
     <div className="search-panel">
       <div className="form">
@@ -20,13 +23,14 @@ function SearchPanel({setActive, search, setSearch, setCurrentPage}) {
           placeholder="Поиск по имени или e-mail"
           value={search}
           onChange={e => {
-            setActive(true);
             setSearch(e.target.value)
             setCurrentPage(1)
           }}
         />
         <div>
-          {search ? <BtnClear setSearch={setSearch}/> : null}
+          {(search || sort) ? <BtnClear 
+            setSort={setSort}
+            setSearch={setSearch}/> : null}
         </div>
       </div>
     </div>

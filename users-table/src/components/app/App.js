@@ -13,11 +13,13 @@ function App() {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [delId, setDelId] = useState(null); /*id удаляемого usera*/
-  const [active, setActive] = useState(false); /* кнопка "Очистить фильтры"*/
-  const [search, setSearch] = useState('');
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const [dataPerPage] = useState(5)
+  const [search, setSearch] = useState('');
+  const [sort, setSort] = useState(false);
+  const [changeSort, setChangeSort] = useState(true);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dataPerPage] = useState(5);
 
   // запрос на сервер
   useEffect(() => {
@@ -38,12 +40,23 @@ function App() {
     return 0
   })
 
+  // сортировка 
+  const onSort = (colum) => {
+    if (changeSort) {
+        setUsers(users.sort((a, b) => a[colum] < b[colum] ? 1 : -1))
+    } else if (!changeSort) {
+        setUsers(users.sort((a, b) => a[colum] > b[colum] ? 1 : -1))
+    }
+    return setChangeSort(!changeSort)
+}
+
+
   // удаление
   const deleteItem = (id) => {
     setDelId(id)
     setModal(true);
   }
-  
+
   // пагинация
   const lastDataIndex = currentPage * dataPerPage
   const firstDataIndex = lastDataIndex - dataPerPage
@@ -59,11 +72,14 @@ function App() {
             setCurrentPage={setCurrentPage}
             search={search}
             setSearch={setSearch}
-            active={active}
-            setActive={setActive} />
+            sort={sort}
+            setSort={setSort}
+          />
           <UsersList
             users={currentData}
-            setUsers={setUsers}
+            setUsers={setUsers} 
+            setSort={setSort}
+            onSort={onSort}
             deleteItem={deleteItem} />
         </div>
         <Pagination
@@ -77,7 +93,7 @@ function App() {
         isOpened={modal}
       >
         <div className="btn-modal">
-          <button 
+          <button
             className='btn modal-yes'
             onClick={() => {
               setUsers(users.filter(item => item.id !== delId))

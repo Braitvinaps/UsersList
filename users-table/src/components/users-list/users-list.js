@@ -3,11 +3,13 @@ import UserItem from "../user-item/user-item";
 
 import './users-list.css'
 
-function UsersList({users, deleteItem}) {
-  
+function UsersList({ users, deleteItem, setSort, onSort }) {
+
   return (
     <>
-      <SortPanel />
+      <SortPanel 
+        onSort={onSort}
+        setSort={setSort}/>
       <div className="table-panel">
         <table className="table">
           <thead>
@@ -20,9 +22,9 @@ function UsersList({users, deleteItem}) {
             </tr>
           </thead>
           <tbody>
-            <UserItem 
+            <UserItem
               users={users}
-              deleteItem={deleteItem}/>
+              deleteItem={deleteItem} />
           </tbody>
         </table>
       </div>

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import './sort-panel.css'
 
-function SortPanel() {
-    const[regData, setRegData] = useState(false);
-    const[rating, setRating] = useState(false);
-    
+function SortPanel({setSort, onSort}) {
+
+    const [regData, setRegData] = useState(false); /* кнопки сортировки */
+    const [rating, setRating] = useState(false);
+
     let classNames = (btn) => {
         return `btn sort-btn ${btn ? 'active' : null}`
     }
@@ -15,13 +16,17 @@ function SortPanel() {
             <button 
                 onClick={() => {
                     setRegData(true)
+                    onSort('registration_date')
                     setRating(false)
+                    setSort(true)
                 }}
                 className={classNames(regData)}>Дата регистрации</button>
             <button 
                 onClick={() => {
                     setRating(true)
+                    onSort('rating')
                     setRegData(false)
+                    setSort(true)
                 }}
                 className={classNames(rating)}>Рейтинг</button>
         </div>
