@@ -46,15 +46,14 @@ function App() {
   // сортировка 
   const onSort = (colum) => {
     if (changeSort) {
-        setUsers(users.sort((a, b) => a[colum] < b[colum] ? 1 : -1))
+      setUsers(users.sort((a, b) => a[colum] < b[colum] ? 1 : -1))
     } else if (!changeSort) {
-        setUsers(users.sort((a, b) => a[colum] > b[colum] ? 1 : -1))
+      setUsers(users.sort((a, b) => a[colum] > b[colum] ? 1 : -1))
     }
     return setChangeSort(!changeSort)
-}
+  }
 
-
-  // удаление
+  // удаление пользователей
   const deleteItem = (id) => {
     setDelId(id)
     setModal(true);
@@ -82,7 +81,7 @@ function App() {
           />
           <UsersList
             users={currentData}
-            setUsers={setUsers} 
+            setUsers={setUsers}
             setSort={setSort}
             onSort={onSort}
             regData={regData}
