@@ -46,9 +46,9 @@ function App() {
 
   // сортировка 
   const onSort = (colum) => {
-    if (changeSort) {
+    if (!changeSort) {
       setUsers(users.sort((a, b) => a[colum] < b[colum] ? 1 : -1))
-    } else if (!changeSort) {
+    } else if (changeSort) {
       setUsers(users.sort((a, b) => a[colum] > b[colum] ? 1 : -1))
     }
     return setChangeSort(!changeSort)
