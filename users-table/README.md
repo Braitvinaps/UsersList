@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+Вёрстка и программирование Таблицы пользователей
+Вводная
+Задание
+    1. Сверстать страницу согласно макету. Ссылка на макет: https://www.figma.com/file/Ie7OB6ojFjU4a1YEGZ5OXE/%D0%9E%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%83-%D0%B4%D0%BB%D1%8F-%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%BA%D0%B8-(Copy)?node-id=101%3A2
+    2. На стороне клиента реализовать следующий функционал:
+    • Возможность поиска пользователей по имени пользователя или e-mail адресу
+    • Возможность сортировки таблицы по следующим полям: дата регистрации, rating
+    • Реализовать пагинацию 
+    • Реализовать возможность удалить пользователя из списка
+Описание функционала
+    1) Поля таблицы должны содержать следующие данные: 
+    • Имя пользователя
+    • E-mail
+    • Дата регистрации
+    • Рейтинг пользователя
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Для получения списка пользователей выполнить GET запрос на следующий url: https://5ebbb8e5f2cfeb001697d05c.mockapi.io/users
+В ответ приходит список пользователей со следующими полями:
+    • id – Уникальный номер пользователя
+    • username – Имя пользователя
+    • email – e-mail адрес пользователя
+    • registration_date – дата регистрации
+    • rating – рейтинг пользователя
+    2) Реализация поиска пользователей по имени пользователя или e-mail адресу:
+    • Доступна возможность ввода запроса для поиска пользователя по имени пользователя либо по e-mail адресу.
+    • Поиск осуществляется при совпадении введенного запроса с полями  «username» или «email» без учёта регистра.
+3)  Реализация сортировки таблицы:
+    • При нажатии на «Дата регистрации» в сортировке список сортируется по дате регистрации от наибольшей даты к наименьшей, при повторном нажатии на активное поле сортировки дата список сортируется по дате от наименьшей даты к наибольшей.
+    • При нажатии на «Прогресс» в сортировке список сортируется по полю «Прогресс» по возрастанию/убыванию аналогично полю «Дата регистрации».
+4)  Кнопка очистить фильтр:
+    • Появляется при активном поиске, либо после применения сортировки по любому из полей
+    • При нажатии на кнопку выполняется сброс фильтр поиска и сортировки
+5)  Пагинация:
+    • На странице отображается по 5 пользователей, есть возможность переходить между страницами (реализация свободная)
+6) Возможность удаления пользователя из таблицы
+    • При нажатии на крестик выводится модальное окно с фразой «Вы уверены, что хотите удалить пользователя» и кнопки «Да», «Нет»
+    • При нажатии на «Нет», модальное окно закрывается
+    • При нажатии на «Да» пользователь удаляется из таблицы на стороне клиента (при обновлении страницы он снова отображается)
+    • При использовании фильтров после удаления пользователя, он не показывается в списках
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Требования к реализации
+    1. Разработанный функционал должен корректно работать в Chrome, Opera, Mozilla, Edge, IE11+.
+    2. Для реализации используется следующий стек – HTML, CSS, JS, любой из JS фреймворков (Vue, React, Angular, Svelte и. т.п.)
+    3. Нельзя использовать готовые компоненты для указанных фреймворков.
+    4. Использовать “use strict”.
+    5. При открытом модальном окне все другие активности невозможны, кроме как в окне.
+ 
