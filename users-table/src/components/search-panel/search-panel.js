@@ -27,8 +27,8 @@ function SearchPanel({ setUsers, users, search, setSearch, setCurrentPage, sort,
           placeholder="Поиск по имени или e-mail"
           value={search}
           onChange={e => {
-            setSearch(e.target.value)
-            setCurrentPage(1)
+            setSearch(e.target.value);
+            setCurrentPage(1);
           }}
         />
         <div>

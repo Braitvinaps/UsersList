@@ -4,7 +4,6 @@ import UserItem from "../user-item/user-item";
 import './users-list.css'
 
 function UsersList({ users, deleteItem, setSort, onSort, regData, setRegData, rating, setRating }) {
-
   return (
     <>
       <SortPanel 

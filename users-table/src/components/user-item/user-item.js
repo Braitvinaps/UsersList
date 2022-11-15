@@ -3,7 +3,7 @@ import './user-item.css'
 function UserItem({ users, deleteItem }) {
     return (
         users.map((user, i) => {
-            const { id, username, email, registration_date, rating } = user
+            const { id, username, email, registration_date, rating } = user;
 
             return (
                 <tr key={id}>

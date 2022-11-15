@@ -1,10 +1,10 @@
 import './pagination.css'
 
 function Pagination({ dataPerPage, totalData, paginate, currentPage }) {
-    const pageNumbers = []
+    const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
-        pageNumbers.push(i)
+        pageNumbers.push(i);
     }
 
     return (
@@ -34,4 +34,4 @@ function Pagination({ dataPerPage, totalData, paginate, currentPage }) {
     )
 }
 
-export default Pagination
+export default Pagination;
