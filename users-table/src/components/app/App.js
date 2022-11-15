@@ -11,15 +11,16 @@ import './App.css';
 function App() {
   const URL = 'https://5ebbb8e5f2cfeb001697d05c.mockapi.io/users';
   const [users, setUsers] = useState([]);
-  const [modal, setModal] = useState(false);
-  const [delId, setDelId] = useState(null); /*id удаляемого usera*/
 
-  const [search, setSearch] = useState('');
+  const [modal, setModal] = useState(false); /*модальное окно удаления пользователя*/
+  const [delId, setDelId] = useState(null); /*id удаляемого пользователя*/
 
-  const [sort, setSort] = useState(false);
-  const [changeSort, setChangeSort] = useState(true);
-  const [regData, setRegData] = useState(false); /* кнопки сортировки */
-  const [rating, setRating] = useState(false);
+  const [search, setSearch] = useState(''); /*строка поиска*/
+
+  const [sort, setSort] = useState(false); /*активирует отображение кнопки очистить фильтр*/
+  const [changeSort, setChangeSort] = useState(true);/*меняет направление сортировки*/
+  const [regData, setRegData] = useState(false);/*сортировка по Дате регистрации*/
+  const [rating, setRating] = useState(false);/*сортировка по Рейтингу*/
 
   const [currentPage, setCurrentPage] = useState(1);
   const [dataPerPage] = useState(5);
@@ -71,6 +72,8 @@ function App() {
         <div className="container">
           <h1>Список пользователей</h1>
           <SearchPanel
+            users={users}
+            setUsers={setUsers}
             setCurrentPage={setCurrentPage}
             search={search}
             setSearch={setSearch}

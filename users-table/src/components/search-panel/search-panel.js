@@ -1,10 +1,12 @@
 import './search-panel.css'
 
-function BtnClear({ setSearch, setSort, setRegData, setRating }) {
+function BtnClear({ setUsers, users, setSearch, setSort, setRegData, setRating, setCurrentPage }) {
   return (
     <button
       onClick={() => {
         setSearch('');
+        setUsers(users.sort((a, b) => a.id - b.id));
+        setCurrentPage(1);
         setSort(false);
         setRating(false);
         setRegData(false);
@@ -15,7 +17,7 @@ function BtnClear({ setSearch, setSort, setRegData, setRating }) {
   )
 }
 
-function SearchPanel({ search, setSearch, setCurrentPage, sort, setSort, setRegData, setRating }) {
+function SearchPanel({ setUsers, users, search, setSearch, setCurrentPage, sort, setSort, setRegData, setRating }) {
   return (
     <div className="search-panel">
       <div className="form">
@@ -33,9 +35,12 @@ function SearchPanel({ search, setSearch, setCurrentPage, sort, setSort, setRegD
           {
             (search || sort) ?
               <BtnClear
+                setUsers={setUsers}
+                users={users}
                 setSort={setSort}
                 setSearch={setSearch}
                 setRegData={setRegData}
+                setCurrentPage={setCurrentPage}
                 setRating={setRating} /> : null
           }
         </div>

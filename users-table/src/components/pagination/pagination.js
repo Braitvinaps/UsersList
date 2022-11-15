@@ -14,20 +14,18 @@ function Pagination({ dataPerPage, totalData, paginate, currentPage }) {
                     currentPage === num
                         ?
                         <li key={num}>
-                            <a
+                            <button
                                 className="active"
-                                href="!#"
                                 onClick={() => paginate(num)}>
                                 {num}
-                            </a>
+                            </button>
                         </li>
                         :
                         <li key={num}>
-                            <a
-                                href="!#"
+                            <button
                                 onClick={() => paginate(num)}>
                                 {num}
-                            </a>
+                            </button>
                         </li>
                     )
                 )}
